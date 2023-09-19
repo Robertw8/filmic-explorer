@@ -1,13 +1,21 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "../../pages/Home/Home";
+import { Movies } from "../../pages/Movies/Movies";
+import { NavBar } from "../NavBar/NavBar";
 
 import { Global } from "@emotion/react";
 import { globalStyles } from "../../styles/globalStyles";
 
 export const App = () => {
 	return (
-		<>
+		<div className='container'>
 			<Global styles={globalStyles} />
-			<div>Movies</div>
-		</>
+			<NavBar />
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/movies' element={<Movies />} />
+			</Routes>
+		</div>
 	);
 };
