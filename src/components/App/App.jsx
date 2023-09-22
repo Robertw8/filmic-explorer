@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "../../pages/Home/Home";
-import { Movies } from "../../pages/Movies/Movies";
+import { Home } from "../../pages/Home";
+import { Movies } from "../../pages/Movies";
 import { NavBar } from "../NavBar/NavBar";
 
 import { Global } from "@emotion/react";
