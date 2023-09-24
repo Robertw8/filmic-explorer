@@ -8,7 +8,7 @@ export const globalStyles = css`
 	}
 
 	body {
-		min-height: 100vh;
+		min-height: 100%;
 		font-family: "Roboto", sans-serif;
 		background-color: #fdfdfd;
 		color: #333333;
@@ -53,10 +53,5 @@ export const globalStyles = css`
 
 	address {
 		font-style: normal;
-	}
-
-	.container {
-		max-width: 1180px;
-		margin: 200px auto;
 	}
 `;
