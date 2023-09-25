@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Container, BackButton } from "./SharedLayout.styled";
 import { Header } from "../Header/Header";
-import { NavBar } from "../../NavBar/NavBar";
+import { NavBar } from "../NavBar/NavBar";
 
 export const SharedLayout = () => {
 	const navigate = useNavigate();
