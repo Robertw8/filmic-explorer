@@ -1,6 +1,14 @@
 import React from "react";
 import { SearchInput } from "../components/SearchInput/SearchInput";
+import { Outlet } from "react-router-dom";
 
-export const Movies = () => {
-	return <SearchInput />;
+const Movies = () => {
+	return (
+		<>
+			<SearchInput />
+			<Outlet />
+		</>
+	);
 };
+
+export default Movies;

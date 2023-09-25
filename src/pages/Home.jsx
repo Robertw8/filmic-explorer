@@ -3,7 +3,7 @@ import { MoviesList } from "../components/MoviesList/MoviesList";
 
 import { getTrendingMovies } from "../api/getTrendingMovies";
 
-export const Home = () => {
+const Home = () => {
 	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
@@ -12,10 +12,17 @@ export const Home = () => {
 
 	const fetchMovies = async () => {
 		const response = await getTrendingMovies();
-		const movies = response.results;
+		const foundMovies = response.results;
 
-		setMovies(movies);
+		setMovies(foundMovies);
 	};
 
-	return <>{movies && <MoviesList movies={movies} />}</>;
+	return (
+		<>
+			<span>HOME</span>
+			{<MoviesList movies={movies} />}
+		</>
+	);
 };
+
+export default Home;
