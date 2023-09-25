@@ -14,6 +14,7 @@ import { globalStyles } from "../../styles/globalStyles";
 export const App = () => {
 	return (
 		<>
+			<div>App</div>
 			<Global styles={globalStyles} />
 			<Routes>
 				<Route path='/' element={<SharedLayout />}>
@@ -27,6 +28,5 @@ export const App = () => {
 				</Route>
 			</Routes>
 		</>
-		//
 	);
 };
