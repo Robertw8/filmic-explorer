@@ -5,7 +5,7 @@ export const NavBar = () => {
 	return (
 		<ul style={{ display: "flex", gap: "20px" }}>
 			<li>
-				<NavLink to='/goit-react-hw-05-movies/'>Home</NavLink>
+				<NavLink to='/'>Home</NavLink>
 			</li>
 			<li>
 				<NavLink to='movies'>Movies</NavLink>
