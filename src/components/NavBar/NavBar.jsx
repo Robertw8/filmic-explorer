@@ -1,15 +1,23 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavMenu, NavItem, StyledLink } from "./NavBar.styled";
+import { BiHomeAlt2 } from "react-icons/bi";
+import { MdLocalMovies } from "react-icons/md";
 
-export const NavBar = () => {
+const NavBar = () => {
 	return (
-		<ul style={{ display: "flex", gap: "20px" }}>
-			<li>
-				<NavLink to='/'>Home</NavLink>
-			</li>
-			<li>
-				<NavLink to='movies'>Movies</NavLink>
-			</li>
-		</ul>
+		<NavMenu>
+			<NavItem>
+				<StyledLink to='/'>
+					<BiHomeAlt2 size={20} /> Home
+				</StyledLink>
+			</NavItem>
+			<NavItem>
+				<StyledLink to='movies'>
+					<MdLocalMovies size={20} /> Movies
+				</StyledLink>
+			</NavItem>
+		</NavMenu>
 	);
 };
+
+export default NavBar;
