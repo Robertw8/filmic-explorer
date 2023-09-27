@@ -7,15 +7,15 @@ const Home = () => {
 	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
+		const fetchMovies = async () => {
+			const response = await getTrendingMovies();
+			const foundMovies = response.results;
+
+			setMovies(foundMovies);
+		};
+
 		fetchMovies();
 	}, []);
-
-	const fetchMovies = async () => {
-		const response = await getTrendingMovies();
-		const foundMovies = response.results;
-
-		setMovies(foundMovies);
-	};
 
 	return (
 		<>
