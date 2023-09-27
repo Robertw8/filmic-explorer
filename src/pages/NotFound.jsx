@@ -1,12 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const NotFound = () => {
-	return (
-		<div>
-			404 404 404 <Link to={"/"}>BACK TO HOMEPAGE</Link>
-		</div>
-	);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		setTimeout(() => {
+			navigate("/");
+		}, 2000);
+	}, []);
+
+	return <div>Page not found, redirecting to homepage...</div>;
 };
 
 export default NotFound;
