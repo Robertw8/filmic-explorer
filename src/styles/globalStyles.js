@@ -1,7 +1,8 @@
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import Roboto from "../assets/fonts/Roboto-Regular.ttf";
 
-export const globalStyles = css`
+const globalStyles = css`
 	@font-face {
 		font-family: "Roboto";
 		src: url(${Roboto}) format("truetype");
@@ -10,7 +11,7 @@ export const globalStyles = css`
 	body {
 		min-height: 100%;
 		font-family: "Roboto", sans-serif;
-		background-color: #fdfdfd;
+		background-color: #eee7fe;
 		color: #333333;
 		margin: 0;
 	}
@@ -55,3 +56,11 @@ export const globalStyles = css`
 		font-style: normal;
 	}
 `;
+
+const Container = styled.div`
+	max-width: 1180px;
+	margin: 0 auto;
+	margin-top: ${(props) => props.marginTop};
+`;
+
+export { globalStyles, Container };
