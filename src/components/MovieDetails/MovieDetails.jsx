@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, Routes, Route, useParams } from "react-router-dom";
-import { Cast } from "../Cast/Cast";
-import { Reviews } from "../Reviews/Reviews";
+import Cast from "../Cast/Cast";
+import Reviews from "../Reviews/Reviews";
 
-import { getMovieDetails } from "../../api/getMovieDetails";
-import { formatNumber } from "../../helpers/formatNumber";
+import getMovieDetails from "../../api/getMovieDetails";
+import formatNumber from "../../helpers/formatNumber";
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
 	const [currentMovie, setCurrentMovie] = useState({
 		poster_path: "",
 		backdrop_path: "",
@@ -67,3 +67,5 @@ export const MovieDetails = () => {
 		</>
 	);
 };
+
+export default MovieDetails;

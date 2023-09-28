@@ -1,13 +1,16 @@
 import React from "react";
-import { SearchInput } from "../components/SearchInput/SearchInput";
-import { Outlet } from "react-router-dom";
+import SearchForm from "../components/SearchForm/SearchForm";
+import { Container } from "../styles/globalStyles";
+import FoundMoviesList from "../components/FoundMoviesList/FoundMoviesList";
+import Title from "../components/Title/Title";
 
 const Movies = () => {
 	return (
-		<>
-			<SearchInput />
-			<Outlet />
-		</>
+		<Container marginTop='100px'>
+			<Title>Search movies: </Title>
+			<SearchForm />
+			<FoundMoviesList />
+		</Container>
 	);
 };
 

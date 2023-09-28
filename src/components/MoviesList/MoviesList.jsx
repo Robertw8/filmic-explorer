@@ -1,15 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { List } from "./MoviesList.styled";
+import MovieItem from "../MovieItem/MovieItem";
 
-export const MoviesList = ({ movies }) => {
+const MoviesList = ({ movies }) => {
 	return (
-		<ul>
+		<List>
 			{movies &&
-				movies.map((movie) => (
-					<li key={movie.id}>
-						<Link to={`movies/${movie.id}`}>{movie["original_title"]}</Link>
-					</li>
-				))}
-		</ul>
+				movies.map(
+					({ id, title, poster_path, backdrop_path }) =>
+						title && (
+							<MovieItem
+								key={id}
+								route={`/movies/${id}`}
+								title={title}
+								posterPath={poster_path}
+								backdropPath={backdrop_path}
+							/>
+						),
+				)}
+		</List>
 	);
 };
+
+export default MoviesList;

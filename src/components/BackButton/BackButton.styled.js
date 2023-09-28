@@ -4,7 +4,7 @@ import { BsBoxArrowLeft } from "react-icons/bs";
 const StyledButton = styled.button`
 	width: 100px;
 	height: 50px;
-	border: 2px solid ${({ theme }) => theme.colors.white};
+	border: 2px solid ${({ theme }) => theme.colors.background};
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -17,14 +17,11 @@ const StyledButton = styled.button`
 
 	background-color: transparent;
 	border-radius: 10px;
-	transition-duration: ${({ theme }) => theme.transitionSecondary};
+	transition-duration: ${({ theme }) => theme.transitions.secondary};
 
 	&:hover {
 		color: ${({ theme }) => theme.colors.primary};
-		box-shadow: inset -6rem 0 50px 0 ${({ theme }) => theme.colors.white};
-	}
-	&:active {
-		transform: scale(0.98);
+		background-color: ${({ theme }) => theme.colors.background};
 	}
 `;
 

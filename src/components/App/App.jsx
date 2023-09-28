@@ -1,31 +1,73 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { SharedLayout } from "../SharedLayout/SharedLayout";
-import Home from "../../pages/Home";
-import Movies from "../../pages/Movies";
-import NotFound from "../../pages/NotFound";
-import { MovieDetails } from "../../components/MovieDetails/MovieDetails";
-import { Cast } from "../../components/Cast/Cast";
-import { Reviews } from "../../components/Reviews/Reviews";
+import SharedLayout from "../SharedLayout/SharedLayout";
+import Loader from "../Loader/Loader";
 
-import { Global } from "@emotion/react";
-import { globalStyles } from "../../styles/globalStyles";
+const Home = lazy(() => import("../../pages/Home"));
+const Movies = lazy(() => import("../../pages/Movies"));
+const NotFound = lazy(() => import("../../pages/NotFound"));
+const MovieDetails = lazy(() => import("../MovieDetails/MovieDetails"));
+const Cast = lazy(() => import("../Cast/Cast"));
+const Reviews = lazy(() => import("../Reviews/Reviews"));
 
-export const App = () => {
+const App = () => {
 	return (
 		<>
-			<Global styles={globalStyles} />
 			<Routes>
 				<Route path='/' element={<SharedLayout />}>
-					<Route index element={<Home />} />
-					<Route path='movies' element={<Movies />} />
-					<Route path='movies/:movieId/*' element={<MovieDetails />}>
-						<Route path='cast' element={<Cast />} />
-						<Route path='reviews' element={<Reviews />} />
+					<Route
+						index
+						element={
+							<Suspense fallback={<Loader />}>
+								<Home />
+							</Suspense>
+						}
+					/>
+					<Route
+						path='movies'
+						element={
+							<Suspense fallback={<Loader />}>
+								<Movies />
+							</Suspense>
+						}
+					/>
+					<Route
+						path='movies/:movieId/*'
+						element={
+							<Suspense fallback={<Loader />}>
+								<MovieDetails />
+							</Suspense>
+						}
+					>
+						<Route
+							path='cast'
+							element={
+								<Suspense fallback={<Loader />}>
+									<Cast />
+								</Suspense>
+							}
+						/>
+						<Route
+							path='reviews'
+							element={
+								<Suspense fallback={<Loader />}>
+									<Reviews />
+								</Suspense>
+							}
+						/>
 					</Route>
-					<Route path='*' element={<NotFound />} />
+					<Route
+						path='*'
+						element={
+							<Suspense fallback={<Loader />}>
+								<NotFound />
+							</Suspense>
+						}
+					/>
 				</Route>
 			</Routes>
 		</>
 	);
 };
+
+export default App;

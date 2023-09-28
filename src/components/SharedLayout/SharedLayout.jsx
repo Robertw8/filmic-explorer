@@ -1,21 +1,29 @@
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { Container, BackButton } from "./SharedLayout.styled";
-import { Header } from "../Header/Header";
-import { NavBar } from "../NavBar/NavBar";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Container } from "../../styles/globalStyles";
+import Header from "../Header/Header";
+import NavBar from "../NavBar/NavBar";
+import BackButton from "../BackButton/BackButton";
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
 	const navigate = useNavigate();
-
 	const goBack = () => navigate(-1);
+	const location = useLocation();
+	const isOnHomePage = location.pathname === "/";
 
 	return (
-		<Header>
+		<>
 			<Container>
-				<BackButton onClick={goBack}>Go back</BackButton>
-				<NavBar />
+				<Header>
+					<BackButton onClick={() => goBack()} isDisabled={isOnHomePage} />
+					<NavBar />
+				</Header>
 			</Container>
-			<Outlet />
-		</Header>
+			<Container>
+				<Outlet />
+			</Container>
+		</>
 	);
 };
+
+export default SharedLayout;

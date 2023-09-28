@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
 	const navigate = useNavigate();
@@ -8,7 +8,7 @@ const NotFound = () => {
 		setTimeout(() => {
 			navigate("/");
 		}, 2000);
-	}, []);
+	}, [navigate]);
 
 	return <div>Page not found, redirecting to homepage...</div>;
 };

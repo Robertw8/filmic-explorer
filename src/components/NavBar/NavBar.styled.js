@@ -28,7 +28,7 @@ const StyledLink = styled(NavLink)`
 	&.active {
 		color: ${({ theme }) => theme.colors.white};
 		transform: translateY(-1px);
-		box-shadow: 0 3px 6px 3px ${({ theme }) => theme.colors.white};
+		box-shadow: 0 3px 5px 2px ${({ theme }) => theme.colors.white};
 	}
 `;
 
