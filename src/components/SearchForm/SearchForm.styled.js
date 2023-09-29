@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { FiSearch } from "react-icons/fi";
 import { TextField } from "@mui/material";
 
 const Form = styled.form`
@@ -19,6 +18,4 @@ const Input = styled(TextField)`
 	border-radius: 10px;
 `;
 
-const SearchIcon = styled(FiSearch)``;
-
-export { Form, Input, SearchIcon };
+export { Form, Input };
