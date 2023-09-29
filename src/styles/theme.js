@@ -1,21 +1,22 @@
-const theme = Object.freeze({
-	colors: {
-		text: "#0f032b",
-		background: "#eee7fe",
-		primary: "#4d0dd9",
-		secondary: "#c2a8fa",
-		accent: "#480cca",
-		white: "#f9f9f9",
-	},
-	fontSizes: {
-		large: "30px",
-		medium: "24px",
-		small: "18px",
-		xs: "14px",
+import { createTheme } from "@mui/material";
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: "#4d0dd9",
+			light: "#c2a8fa",
+			dark: "#0f032b",
+			contrastText: "#f9f9f9",
+		},
+		secondary: {
+			main: "#eee7fe",
+		},
 	},
 	transitions: {
-		primary: "150ms",
-		secondary: "300ms",
+		duration: {
+			shortest: 150,
+			standard: 300,
+		},
 	},
 });
 
