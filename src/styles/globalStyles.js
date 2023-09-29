@@ -11,8 +11,8 @@ const globalStyles = css`
 	body {
 		min-height: 100%;
 		font-family: "Roboto", sans-serif;
-		background-color: #eee7fe;
-		color: #333333;
+		background-color: #1a1a2e;
+		color: #eee7fe;
 		margin: 0;
 	}
 
@@ -60,6 +60,7 @@ const globalStyles = css`
 const Container = styled.div`
 	max-width: 1180px;
 	margin: 0 auto;
+	padding: 16px;
 	margin-top: ${(props) => props.marginTop};
 `;
 
