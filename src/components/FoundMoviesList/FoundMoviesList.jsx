@@ -25,17 +25,13 @@ const FoundMoviesList = () => {
 			setFoundMovies(movies);
 			setIsLoading(false);
 
-			if (movies.length === 0) {
-				setNoMoviesFound(true);
-			}
+			if (movies.length === 0) setNoMoviesFound(true);
 		};
 
 		fetchMoviesBySearch();
 	}, [query]);
 
-	if (noMoviesFound) {
-		return <NoMovies>No movies found</NoMovies>;
-	}
+	if (noMoviesFound) return <NoMovies>No movies found</NoMovies>;
 
 	return (
 		<List>
