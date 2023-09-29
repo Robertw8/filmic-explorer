@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import getMovieCredits from "../../api/getMovieCredits";
-import { useParams } from "react-router-dom";
-
 import TableBody from "@mui/material/TableBody";
 import { Paper } from "@mui/material";
 import { StyledTableContainer, StyledTable, StyledTableHead, StyledTableRow, StyledTableCell } from "./Cast.styled";
+import getMovieCredits from "../../api/getMovieCredits";
+import { useParams } from "react-router-dom";
 
 const Cast = () => {
 	const [cast, setCast] = useState([]);
-
 	const { movieId } = useParams();
 
 	useEffect(() => {
@@ -24,13 +22,13 @@ const Cast = () => {
 			<StyledTable size='medium' aria-label='cast table'>
 				<StyledTableHead>
 					<StyledTableRow>
-						<StyledTableCell align='center'>Name</StyledTableCell>
-						<StyledTableCell align='center'>Character</StyledTableCell>
+						<StyledTableCell>Name</StyledTableCell>
+						<StyledTableCell>Character</StyledTableCell>
 					</StyledTableRow>
 				</StyledTableHead>
 				<TableBody>
 					{cast.map(({ id, name, character }) => (
-						<StyledTableRow key={id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+						<StyledTableRow key={id}>
 							<StyledTableCell component='th' scope='row'>
 								{name}
 							</StyledTableCell>
