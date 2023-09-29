@@ -1,16 +1,26 @@
 import React from "react";
-import { Item, MovieLink, MovieImage, MovieName, ImageThumb } from "./MovieItem.styled";
+import { StyledCard, CardTitle, StyledCardMedia } from "./MovieItem.styled";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const MovieItem = ({ route, title, posterPath, backdropPath }) => {
+	const navigate = useNavigate();
+
 	return (
-		<Item>
-			<MovieLink to={route}>
-				<ImageThumb>
-					<MovieImage src={`https://image.tmdb.org/t/p/w500${backdropPath || posterPath}`} alt={title} />
-				</ImageThumb>
-				<MovieName>{title}</MovieName>
-			</MovieLink>
-		</Item>
+		<StyledCard>
+			<CardActionArea onClick={() => navigate(route)}>
+				<StyledCardMedia
+					component='img'
+					image={`https://image.tmdb.org/t/p/w500${backdropPath || posterPath}`}
+					alt={title}
+				></StyledCardMedia>
+				<CardContent>
+					<CardTitle>{title}</CardTitle>
+				</CardContent>
+			</CardActionArea>
+		</StyledCard>
 	);
 };
 

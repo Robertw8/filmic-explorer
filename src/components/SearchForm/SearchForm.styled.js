@@ -1,16 +1,24 @@
 import styled from "@emotion/styled";
+import { FiSearch } from "react-icons/fi";
+import { TextField } from "@mui/material";
 
-const Input = styled.input`
-	outline: none;
+const Form = styled.form`
+	margin-top: 40px;
 
-	width: 200px;
-	font-size: 30px;
+	display: flex;
+	justify-content: center;
 `;
 
-const SubmitButton = styled.button`
-	width: 60px;
-	height: 40px;
-	margin-left: 10px;
+const Input = styled(TextField)`
+	width: 300px;
+	padding: 5px 10px;
+
+	color: #fff;
+
+	background-color: #eee7fe;
+	border-radius: 10px;
 `;
 
-export { Input, SubmitButton };
+const SearchIcon = styled(FiSearch)``;
+
+export { Form, Input, SearchIcon };

@@ -1,21 +1,28 @@
-import React from "react";
-import { NavMenu, NavItem, StyledLink } from "./NavBar.styled";
-import { BiHomeAlt2 } from "react-icons/bi";
-import { MdLocalMovies } from "react-icons/md";
+import React, { useState, useEffect } from "react";
+import { NavMenu, NavItem } from "./NavBar.styled";
+
+import HomeIcon from "@mui/icons-material/Home";
+import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const NavBar = () => {
+	const navigate = useNavigate();
+	const [value, setValue] = useState("/");
+	const location = useLocation();
+
+	const handleChange = (e, newValue) => {
+		navigate(newValue);
+		setValue(newValue);
+	};
+
+	useEffect(() => {
+		setValue(location.pathname);
+	}, [location]);
+
 	return (
-		<NavMenu>
-			<NavItem>
-				<StyledLink to='/'>
-					<BiHomeAlt2 size={20} /> Home
-				</StyledLink>
-			</NavItem>
-			<NavItem>
-				<StyledLink to='movies'>
-					<MdLocalMovies size={20} /> Movies
-				</StyledLink>
-			</NavItem>
+		<NavMenu value={value} onChange={handleChange}>
+			<NavItem label='Home' value='/' icon={<HomeIcon />} color='secondary' />
+			<NavItem label='Movies' value='/movies' icon={<LocalMoviesIcon />} />
 		</NavMenu>
 	);
 };

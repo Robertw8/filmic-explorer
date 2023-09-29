@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Input, SubmitButton } from "./SearchForm.styled";
+import { Form, Input } from "./SearchForm.styled";
 import { useSearchParams } from "react-router-dom";
 
 const SearchForm = () => {
 	const [inputValue, setInputValue] = useState(sessionStorage.getItem("input-value") || "");
+	const [currentInput, setCurrentInput] = useState("");
 	const [searchParams, setSearchParams] = useSearchParams();
 	const query = searchParams.get("query");
 
@@ -12,31 +13,37 @@ const SearchForm = () => {
 			sessionStorage.setItem("input-value", query ? query : "");
 		}
 
+		if (currentInput) {
+			const timeoutId = setTimeout(() => {
+				if (currentInput.length >= 2 && currentInput !== query) {
+					setSearchParams({ query: currentInput });
+				}
+			}, 500);
+
+			return () => clearTimeout(timeoutId);
+		}
+
 		if (inputValue) {
 			setSearchParams({ query: inputValue });
 		}
-	}, [query]);
+	}, [currentInput, inputValue, query, setSearchParams]);
 
-	const onSearchSubmit = (e) => {
-		e.preventDefault();
-		const value = e.target.elements[0].value;
-
-		if (value.length < 2 || value === query) return;
-
-		setSearchParams({ query: value });
+	const handleChange = (e) => {
+		setInputValue(e.target.value);
+		setCurrentInput(e.target.value);
 	};
 
 	return (
 		<>
-			<form onSubmit={onSearchSubmit}>
+			<Form>
 				<Input
 					type='text'
 					placeholder='Search movies...'
 					value={String(inputValue)}
-					onChange={(e) => setInputValue(e.target.value)}
+					onChange={handleChange}
+					variant='standard'
 				/>
-				<SubmitButton type='submit'>Search</SubmitButton>
-			</form>
+			</Form>
 		</>
 	);
 };

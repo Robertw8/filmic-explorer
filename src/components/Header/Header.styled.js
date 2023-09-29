@@ -5,9 +5,8 @@ const StyledHeader = styled.header`
 	padding: 15px;
 	display: flex;
 	align-items: center;
-	gap: 50px;
+	gap: 20px;
 
-	background-color: ${({ theme }) => theme.colors.primary};
 	border-radius: 15px;
 `;
 

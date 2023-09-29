@@ -6,8 +6,8 @@ import Title from "../components/Title/Title";
 
 const Movies = () => {
 	return (
-		<Container marginTop='100px'>
-			<Title>Search movies: </Title>
+		<Container marginTop='50px'>
+			<Title>Search movies</Title>
 			<SearchForm />
 			<FoundMoviesList />
 		</Container>

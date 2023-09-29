@@ -5,7 +5,13 @@ const List = styled.ul`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	gap: 80px 40px;
+	gap: 30px;
 `;
 
-export { List };
+const NoMovies = styled.p`
+	margin-top: 50px;
+	text-align: center;
+	font-size: 18px;
+`;
+
+export { List, NoMovies };

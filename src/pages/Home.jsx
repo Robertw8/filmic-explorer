@@ -24,7 +24,7 @@ const Home = () => {
 
 	return (
 		<Container marginTop='50px'>
-			<Title>Trending today: </Title>
+			<Title>Trending today</Title>
 			{!isLoading ? <MoviesList movies={movies} /> : <Loader />}
 		</Container>
 	);

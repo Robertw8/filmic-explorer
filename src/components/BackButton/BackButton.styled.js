@@ -1,34 +1,28 @@
 import styled from "@emotion/styled";
-import { BsBoxArrowLeft } from "react-icons/bs";
+import ReplyAllIcon from "@mui/icons-material/ReplyAll";
+import { Button } from "@mui/material";
 
-const StyledButton = styled.button`
+const StyledButton = styled(Button)`
 	width: 100px;
 	height: 50px;
-	border: 2px solid ${({ theme }) => theme.colors.background};
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	gap: 5px;
 
-	color: ${({ theme }) => theme.colors.white};
 	font-family: "Roboto", sans-serif;
+	font-size: 12px;
 	font-weight: 700;
-	font-size: ${({ theme }) => theme.fontSizes.xs};
+	white-space: nowrap;
+	color: #eee7fe;
 
-	background-color: transparent;
+	background-color: #c2a8fa;
 	border-radius: 10px;
-	transition-duration: ${({ theme }) => theme.transitions.secondary};
-
-	&:hover {
-		color: ${({ theme }) => theme.colors.primary};
-		background-color: ${({ theme }) => theme.colors.background};
-	}
 `;
 
-const BackIcon = styled(BsBoxArrowLeft)`
-	&:is(:hover, :focus) {
-		color: ${({ theme }) => theme.colors.primary};
-	}
+const BackIcon = styled(ReplyAllIcon)`
+	width: 20px;
+	height: 20px;
 `;
 
 export { StyledButton, BackIcon };

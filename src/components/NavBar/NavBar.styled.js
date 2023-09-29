@@ -1,35 +1,16 @@
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
-const NavMenu = styled.ul`
-	display: flex;
-	gap: 20px;
-`;
+const NavMenu = styled(BottomNavigation)`
+	width: 100%;
 
-const NavItem = styled.li``;
-
-const StyledLink = styled(NavLink)`
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	padding: 10px;
-
-	font-size: ${({ theme }) => theme.fontSizes.small};
-	color: ${({ theme }) => theme.colors.background};
-	transition-duration: ${({ theme }) => theme.transitions.secondary};
+	background-color: #c2a8fa;
 	border-radius: 10px;
-
-	&:hover {
-		transform: translateY(-1px);
-		box-shadow: 0px 3px 5px 2px ${({ theme }) => theme.colors.white};
-	}
-	&.active {
-		color: ${({ theme }) => theme.colors.white};
-		transform: translateY(-1px);
-		box-shadow: 0 3px 5px 2px ${({ theme }) => theme.colors.white};
-	}
 `;
 
-export { NavMenu, NavItem, StyledLink };
+const NavItem = styled(BottomNavigationAction)`
+	color: #eee7fe;
+`;
+
+export { NavMenu, NavItem };

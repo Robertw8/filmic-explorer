@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import { List } from "../MoviesList/MoviesList.styled";
+import { List, NoMovies } from "../MoviesList/MoviesList.styled";
 import MovieItem from "../MovieItem/MovieItem";
 
 import getMoviesBySearch from "../../api/getMoviesBySearch";
@@ -34,21 +34,24 @@ const FoundMoviesList = () => {
 	}, [query]);
 
 	if (noMoviesFound) {
-		return <p>No movies found</p>;
+		return <NoMovies>No movies found</NoMovies>;
 	}
 
 	return (
 		<List>
 			{!isLoading ? (
-				foundMovies.map(({ id, title, poster_path, backdrop_path }) => (
-					<MovieItem
-						key={id}
-						route={`/movies/${id}`}
-						title={title}
-						posterPath={poster_path}
-						backdropPath={backdrop_path}
-					/>
-				))
+				foundMovies.map(
+					({ id, title, poster_path, backdrop_path }) =>
+						poster_path && (
+							<MovieItem
+								key={id}
+								route={`/movies/${id}`}
+								title={title}
+								posterPath={poster_path}
+								backdropPath={backdrop_path}
+							/>
+						),
+				)
 			) : (
 				<Loader />
 			)}

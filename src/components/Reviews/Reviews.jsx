@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import getMovieReviews from "../../api/getMovieReviews";
 import { useParams } from "react-router-dom";
+import { CardsWrapper, ReviewCard, ReviewAuthor, ReviewText, ReviewLink, NoReviews } from "./Reviews.styled";
+import { CardContent } from "@mui/material";
+import formatDate from "../../helpers/formatDate";
 
 const Reviews = () => {
 	const [reviews, setReviews] = useState([]);
@@ -14,34 +17,29 @@ const Reviews = () => {
 		};
 
 		fetchMovieReviews();
-	}, []);
+	}, [movieId]);
 
 	return (
-		<ul>
-			{reviews.length !== 0 ? (
+		<CardsWrapper>
+			{reviews.length ? (
 				reviews.map(({ id, author, content, created_at, url }) => (
-					<li key={id}>
-						<p>
-							<strong>Author: </strong>
-							{author}
-						</p>
-						<p>
-							<strong>Content: </strong>
-							{content}
-						</p>
-						<p>
-							<strong>Created at: </strong>
-							{created_at}
-						</p>
-						<p>
-							<a href={url}>Link</a>
-						</p>
-					</li>
+					<ReviewCard key={id} elevation={10}>
+						<CardContent>
+							<ReviewAuthor>
+								{author} on {formatDate(created_at)}
+							</ReviewAuthor>
+							<ReviewText>{content}</ReviewText>
+
+							<ReviewLink href={url} target='_blank' rel='noopener norefferer nofollow'>
+								{url}
+							</ReviewLink>
+						</CardContent>
+					</ReviewCard>
 				))
 			) : (
-				<p>No reviews given.</p>
+				<NoReviews>No reviews given.</NoReviews>
 			)}
-		</ul>
+		</CardsWrapper>
 	);
 };
 
