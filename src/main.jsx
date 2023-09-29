@@ -2,15 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App/App";
 import { BrowserRouter } from "react-router-dom";
-import { Global, ThemeProvider } from "@emotion/react";
-import theme from "./styles/theme";
+import { Global } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import { globalStyles } from "./styles/globalStyles";
+import theme from "./styles/theme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<BrowserRouter basename='/goit-react-hw-05-movies/'>
+			<Global styles={globalStyles} />
 			<ThemeProvider theme={theme}>
-				<Global styles={globalStyles} />
 				<App />
 			</ThemeProvider>
 		</BrowserRouter>
