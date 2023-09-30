@@ -9,6 +9,10 @@ const StyledTableContainer = styled(TableContainer)`
 	max-width: 70%;
 	margin: 50px auto 0 auto;
 	border-radius: 10px;
+
+	@media screen and (max-width: 768px) {
+		max-width: 100%;
+	}
 `;
 
 const StyledTable = styled(Table)`

@@ -62,6 +62,13 @@ const Container = styled.div`
 	margin: 0 auto;
 	padding: 16px;
 	margin-top: ${(props) => props.marginTop};
+
+	@media screen and (max-width: 1080px) {
+		max-width: 768px;
+	}
+	@media screen and (max-width: 768px) {
+		max-width: 375px;
+	}
 `;
 
 export { globalStyles, Container };

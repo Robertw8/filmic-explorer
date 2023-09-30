@@ -5,6 +5,10 @@ const MovieDetailsWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	gap: 20px;
+
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const MovieContent = styled(Card)`
@@ -13,12 +17,21 @@ const MovieContent = styled(Card)`
 
 	border-radius: 10px;
 	background-color: #4d0dd9;
+
+	@media screen and (max-width: 768px) {
+		max-width: 100%;
+		padding: 10px;
+	}
 `;
 
 const ImageThumb = styled(Card)`
 	border-radius: 10px;
 	padding: 10px;
 	background-color: #0f032b;
+
+	@media screen and (max-width: 768px) {
+		padding: 0;
+	}
 `;
 
 const MovieImage = styled.img`

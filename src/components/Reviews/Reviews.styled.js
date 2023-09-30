@@ -5,6 +5,10 @@ const CardsWrapper = styled.div`
 	max-width: 70%;
 
 	margin: 50px auto;
+
+	@media screen and (max-width: 768px) {
+		max-width: 100%;
+	}
 `;
 
 const ReviewCard = styled(Card)`
@@ -38,6 +42,7 @@ const ReviewLink = styled.a`
 	background-color: #0f032b;
 	border-radius: 10px;
 	transition-duration: 300ms;
+	overflow: hidden;
 
 	&:hover {
 		border-color: #eee7fe;

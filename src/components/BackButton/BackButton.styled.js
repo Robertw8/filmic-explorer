@@ -18,6 +18,10 @@ const StyledButton = styled(Button)`
 
 	background-color: #c2a8fa;
 	border-radius: 10px;
+
+	@media screen and (max-width: 768px) {
+		font-size: 10px;
+	}
 `;
 
 const BackIcon = styled(ReplyAllIcon)`

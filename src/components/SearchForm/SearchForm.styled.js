@@ -12,8 +12,6 @@ const Input = styled(TextField)`
 	width: 300px;
 	padding: 5px 10px;
 
-	color: #fff;
-
 	background-color: #eee7fe;
 	border-radius: 10px;
 `;
