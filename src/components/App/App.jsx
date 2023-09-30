@@ -6,67 +6,25 @@ import Loader from "../Loader/Loader";
 const Home = lazy(() => import("../../pages/Home"));
 const Movies = lazy(() => import("../../pages/Movies"));
 const NotFound = lazy(() => import("../../pages/NotFound"));
-const MovieDetails = lazy(() => import("../MovieDetails/MovieDetails"));
+const MovieDetails = lazy(() => import("../../pages/MovieDetails/MovieDetails"));
 const Cast = lazy(() => import("../Cast/Cast"));
 const Reviews = lazy(() => import("../Reviews/Reviews"));
 
 const App = () => {
 	return (
-		<>
+		<Suspense fallback={<Loader top='50%' />}>
 			<Routes>
 				<Route path='/' element={<SharedLayout />}>
-					<Route
-						index
-						element={
-							<Suspense fallback={<Loader top='50%' />}>
-								<Home />
-							</Suspense>
-						}
-					/>
-					<Route
-						path='movies'
-						element={
-							<Suspense fallback={<Loader top='50%' />}>
-								<Movies />
-							</Suspense>
-						}
-					/>
-					<Route
-						path='movies/:movieId/*'
-						element={
-							<Suspense fallback={<Loader top='70%' />}>
-								<MovieDetails />
-							</Suspense>
-						}
-					>
-						<Route
-							path='cast'
-							element={
-								<Suspense fallback={<Loader top='50%' />}>
-									<Cast />
-								</Suspense>
-							}
-						/>
-						<Route
-							path='reviews'
-							element={
-								<Suspense fallback={<Loader top='50%' />}>
-									<Reviews />
-								</Suspense>
-							}
-						/>
+					<Route index element={<Home />} />
+					<Route path='movies' element={<Movies />} />
+					<Route path='movies/:movieId/*' element={<MovieDetails />}>
+						<Route path='cast' element={<Cast />} />
+						<Route path='reviews' element={<Reviews />} />
 					</Route>
-					<Route
-						path='*'
-						element={
-							<Suspense fallback={<Loader top='50%' />}>
-								<NotFound />
-							</Suspense>
-						}
-					/>
+					<Route path='*' element={<NotFound />} />
 				</Route>
 			</Routes>
-		</>
+		</Suspense>
 	);
 };
 
