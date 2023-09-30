@@ -11,7 +11,7 @@ const NavBar = () => {
 	const location = useLocation();
 
 	const handleChange = (e, newValue) => {
-		navigate(newValue);
+		navigate(newValue, { state: newValue });
 		setValue(newValue);
 	};
 
