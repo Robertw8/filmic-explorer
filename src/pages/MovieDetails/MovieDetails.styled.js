@@ -28,7 +28,7 @@ const MovieContent = styled(Card)`
 const ImageThumb = styled(Card)`
 	border-radius: 10px;
 	padding: 10px;
-	background-color: #0f032b;
+	background-color: #4d0dd9;
 
 	@media screen and (max-width: 768px) {
 		padding: 0;

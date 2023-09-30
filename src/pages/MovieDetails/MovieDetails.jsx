@@ -17,9 +17,9 @@ import getMovieDetails from "../../api/getMovieDetails";
 import formatNumber from "../../helpers/formatNumber";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import MovieIcon from "@mui/icons-material/Movie";
-import Loader from "../Loader/Loader";
-const Cast = lazy(() => import("../Cast/Cast"));
-const Reviews = lazy(() => import("../Reviews/Reviews"));
+import Loader from "../../components/Loader/Loader";
+const Cast = lazy(() => import("../../components/Cast/Cast"));
+const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 
 const MovieDetails = () => {
 	const [currentMovie, setCurrentMovie] = useState({
@@ -81,24 +81,12 @@ const MovieDetails = () => {
 							</LinksWrapper>
 						</MovieContent>
 					</MovieDetailsWrapper>
-					<Routes>
-						<Route
-							path='cast'
-							element={
-								<Suspense fallback={<Loader top='70%' />}>
-									<Cast />
-								</Suspense>
-							}
-						/>
-						<Route
-							path='reviews'
-							element={
-								<Suspense fallback={<Loader top='70%' />}>
-									<Reviews />
-								</Suspense>
-							}
-						/>
-					</Routes>
+					<Suspense fallback={<Loader top='70%' />}>
+						<Routes>
+							<Route path='cast' element={<Cast />} />
+							<Route path='reviews' element={<Reviews />} />
+						</Routes>
+					</Suspense>
 				</>
 			)}
 		</>
