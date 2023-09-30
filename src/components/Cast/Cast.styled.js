@@ -38,4 +38,9 @@ const StyledTableCell = styled(TableCell)`
 	font-size: 18px;
 `;
 
-export { StyledTableContainer, StyledTable, StyledTableHead, StyledTableRow, StyledTableCell };
+const StyledTableImage = styled.img`
+	width: 100px;
+	height: 100px;
+`;
+
+export { StyledTableContainer, StyledTable, StyledTableHead, StyledTableRow, StyledTableCell, StyledTableImage };
