@@ -7,7 +7,6 @@ import formatDate from "../../helpers/formatDate";
 
 const Reviews = () => {
 	const [reviews, setReviews] = useState([]);
-
 	const { movieId } = useParams();
 
 	useEffect(() => {

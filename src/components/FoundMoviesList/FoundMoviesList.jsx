@@ -49,7 +49,7 @@ const FoundMoviesList = () => {
 						),
 				)
 			) : (
-				<Loader />
+				<Loader top='50%' />
 			)}
 		</List>
 	);

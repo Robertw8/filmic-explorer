@@ -25,7 +25,7 @@ const Home = () => {
 	return (
 		<Container marginTop='50px'>
 			<Title>Trending today</Title>
-			{!isLoading ? <MoviesList movies={movies} /> : <Loader />}
+			{!isLoading ? <MoviesList movies={movies} /> : <Loader top='50%' />}
 		</Container>
 	);
 };

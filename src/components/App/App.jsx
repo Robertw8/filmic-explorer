@@ -18,7 +18,7 @@ const App = () => {
 					<Route
 						index
 						element={
-							<Suspense fallback={<Loader />}>
+							<Suspense fallback={<Loader top='50%' />}>
 								<Home />
 							</Suspense>
 						}
@@ -26,7 +26,7 @@ const App = () => {
 					<Route
 						path='movies'
 						element={
-							<Suspense fallback={<Loader />}>
+							<Suspense fallback={<Loader top='50%' />}>
 								<Movies />
 							</Suspense>
 						}
@@ -34,7 +34,7 @@ const App = () => {
 					<Route
 						path='movies/:movieId/*'
 						element={
-							<Suspense fallback={<Loader />}>
+							<Suspense fallback={<Loader top='50%' />}>
 								<MovieDetails />
 							</Suspense>
 						}
@@ -42,7 +42,7 @@ const App = () => {
 						<Route
 							path='cast'
 							element={
-								<Suspense fallback={<Loader />}>
+								<Suspense fallback={<Loader top='50%' />}>
 									<Cast />
 								</Suspense>
 							}
@@ -50,7 +50,7 @@ const App = () => {
 						<Route
 							path='reviews'
 							element={
-								<Suspense fallback={<Loader />}>
+								<Suspense fallback={<Loader top='50%' />}>
 									<Reviews />
 								</Suspense>
 							}
@@ -59,7 +59,7 @@ const App = () => {
 					<Route
 						path='*'
 						element={
-							<Suspense fallback={<Loader />}>
+							<Suspense fallback={<Loader top='50%' />}>
 								<NotFound />
 							</Suspense>
 						}

@@ -9,6 +9,7 @@ const formatDate = (dateString) => {
 		timeZoneName: "short",
 	};
 	const formattedDate = new Date(dateString).toDateString(undefined, options);
+
 	return formattedDate;
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { StyledCard, CardTitle, StyledCardMedia } from "./MovieItem.styled";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
