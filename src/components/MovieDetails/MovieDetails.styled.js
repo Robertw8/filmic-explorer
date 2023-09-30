@@ -17,6 +17,7 @@ const MovieContent = styled(Card)`
 
 	border-radius: 10px;
 	background-color: #4d0dd9;
+	overflow: auto;
 
 	@media screen and (max-width: 768px) {
 		max-width: 100%;
