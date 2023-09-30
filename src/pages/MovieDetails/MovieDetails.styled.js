@@ -17,7 +17,6 @@ const MovieContent = styled(Card)`
 
 	border-radius: 10px;
 	background-color: #4d0dd9;
-	overflow: auto;
 
 	@media screen and (max-width: 768px) {
 		max-width: 100%;
@@ -52,7 +51,8 @@ const GenresWrapper = styled.div`
 
 const GenresList = styled.ul`
 	display: flex;
-	gap: 20px;
+	flex-wrap: wrap;
+	gap: 0 20px;
 	margin-top: 5px;
 `;
 

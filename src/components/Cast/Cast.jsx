@@ -40,15 +40,20 @@ const Cast = () => {
 							</StyledTableRow>
 						</StyledTableHead>
 						<TableBody>
-							{cast.map(({ id, profile_path, name, character }) => (
-								<StyledTableRow key={id}>
-									<StyledTableCell>
-										<StyledTableImage src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />
-									</StyledTableCell>
-									<StyledTableCell>{name}</StyledTableCell>
-									<StyledTableCell>{character}</StyledTableCell>
-								</StyledTableRow>
-							))}
+							{cast.map(
+								({ id, profile_path, name, character }) =>
+									profile_path &&
+									character &&
+									name && (
+										<StyledTableRow key={id}>
+											<StyledTableCell>
+												<StyledTableImage src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />
+											</StyledTableCell>
+											<StyledTableCell>{name}</StyledTableCell>
+											<StyledTableCell>{character}</StyledTableCell>
+										</StyledTableRow>
+									),
+							)}
 						</TableBody>
 					</StyledTable>
 				</StyledTableContainer>
