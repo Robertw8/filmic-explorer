@@ -9,6 +9,7 @@ const StyledButton = styled(Button)`
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
+	align-self: flex-start;
 
 	font-family: "Roboto", sans-serif;
 	font-size: 12px;

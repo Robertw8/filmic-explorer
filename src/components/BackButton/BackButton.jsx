@@ -1,9 +1,9 @@
 import React from "react";
 import { StyledButton, BackIcon } from "./BackButton.styled";
 
-const BackButton = ({ onClick, isDisabled }) => {
+const BackButton = ({ onClick }) => {
 	return (
-		<StyledButton onClick={onClick} disabled={isDisabled} variant='outlined'>
+		<StyledButton onClick={onClick} variant='outlined'>
 			<BackIcon /> Go back
 		</StyledButton>
 	);
