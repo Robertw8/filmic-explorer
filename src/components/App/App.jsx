@@ -34,7 +34,7 @@ const App = () => {
 					<Route
 						path='movies/:movieId/*'
 						element={
-							<Suspense fallback={<Loader top='50%' />}>
+							<Suspense fallback={<Loader top='70%' />}>
 								<MovieDetails />
 							</Suspense>
 						}
