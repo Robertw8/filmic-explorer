@@ -1,11 +1,5 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
-import {
-  Routes,
-  Route,
-  useParams,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import React, { useState, useEffect, Suspense } from "react";
+import { useParams, useNavigate, useLocation, Outlet } from "react-router-dom";
 import {
   MovieDetailsWrapper,
   ImageThumb,
@@ -25,8 +19,6 @@ import ReviewsIcon from "@mui/icons-material/Reviews";
 import MovieIcon from "@mui/icons-material/Movie";
 import Loader from "../../components/Loader/Loader";
 import BackButton from "../../components/BackButton/BackButton";
-const Cast = lazy(() => import("../../components/Cast/Cast"));
-const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 
 const MovieDetails = () => {
   const [currentMovie, setCurrentMovie] = useState({
@@ -107,10 +99,7 @@ const MovieDetails = () => {
             </MovieContent>
           </MovieDetailsWrapper>
           <Suspense fallback={<Loader top="70%" />}>
-            <Routes>
-              <Route path="cast" element={<Cast />} />
-              <Route path="reviews" element={<Reviews />} />
-            </Routes>
+            <Outlet />
           </Suspense>
         </>
       )}
