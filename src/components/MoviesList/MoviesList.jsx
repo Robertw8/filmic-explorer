@@ -7,16 +7,8 @@ const MoviesList = ({ movies }) => {
 		<List>
 			{movies &&
 				movies.map(
-					({ id, title, poster_path, backdrop_path }) =>
-						title && (
-							<MovieItem
-								key={id}
-								route={`/movies/${id}`}
-								title={title}
-								posterPath={poster_path}
-								backdropPath={backdrop_path}
-							/>
-						),
+					({ id, title, poster_path }) =>
+						title && <MovieItem key={id} route={`/movies/${id}`} title={title} posterPath={poster_path} />,
 				)}
 		</List>
 	);

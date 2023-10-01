@@ -16,6 +16,7 @@ import { NoReviews } from "../Reviews/Reviews.styled";
 const Cast = () => {
 	const [cast, setCast] = useState([]);
 	const { movieId } = useParams();
+	const defaultImg = "https://placehold.co/600x400/lightpurple/white?text=No Image Given";
 
 	useEffect(() => {
 		const fetchMovieCredits = async () => {
@@ -40,12 +41,13 @@ const Cast = () => {
 						<TableBody>
 							{cast.map(
 								({ id, profile_path, name, character }) =>
-									profile_path &&
-									character &&
 									name && (
 										<StyledTableRow key={id}>
 											<StyledTableCell>
-												<StyledTableImage src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />
+												<StyledTableImage
+													src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
+													alt={name}
+												/>
 											</StyledTableCell>
 											<StyledTableCell>{name}</StyledTableCell>
 											<StyledTableCell>{character}</StyledTableCell>

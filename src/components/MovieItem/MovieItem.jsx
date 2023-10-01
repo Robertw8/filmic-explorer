@@ -4,15 +4,16 @@ import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const MovieItem = ({ route, title, posterPath, backdropPath }) => {
+const MovieItem = ({ route, title, posterPath }) => {
 	const navigate = useNavigate();
+	const defaultImg = "https://placehold.co/600x400/lightpurple/white?text=No Image Given";
 
 	return (
 		<StyledCard>
 			<CardActionArea onClick={() => navigate(route)}>
 				<StyledCardMedia
 					component='img'
-					image={`https://image.tmdb.org/t/p/w500${backdropPath || posterPath}`}
+					image={`https://image.tmdb.org/t/p/w500${posterPath}` || defaultImg}
 					alt={title}
 				></StyledCardMedia>
 				<CardContent>
