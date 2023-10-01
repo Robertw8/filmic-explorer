@@ -7,27 +7,27 @@ import Title from "../components/Title/Title";
 import getTrendingMovies from "../api/getTrendingMovies";
 
 const Home = () => {
-	const [movies, setMovies] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
-		const fetchMovies = async () => {
-			const response = await getTrendingMovies();
-			const foundMovies = response.results;
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await getTrendingMovies();
+      const foundMovies = response.results;
 
-			setMovies(foundMovies);
-			setIsLoading(false);
-		};
+      setMovies(foundMovies);
+      setIsLoading(false);
+    };
 
-		fetchMovies();
-	}, []);
+    fetchMovies();
+  }, []);
 
-	return (
-		<Container marginTop='50px'>
-			<Title>Trending today</Title>
-			{!isLoading ? <MoviesList movies={movies} /> : <Loader top='50%' />}
-		</Container>
-	);
+  return (
+    <Container marginTop="50px">
+      <Title>Trending today</Title>
+      {!isLoading ? <MoviesList movies={movies} /> : <Loader top="50%" />}
+    </Container>
+  );
 };
 
 export default Home;
