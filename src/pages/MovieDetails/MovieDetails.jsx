@@ -19,6 +19,7 @@ import ReviewsIcon from "@mui/icons-material/Reviews";
 import MovieIcon from "@mui/icons-material/Movie";
 import Loader from "../../components/Loader/Loader";
 import BackButton from "../../components/BackButton/BackButton";
+import { Container } from "../../styles/globalStyles";
 
 const MovieDetails = () => {
   const [currentMovie, setCurrentMovie] = useState({
@@ -99,7 +100,9 @@ const MovieDetails = () => {
             </MovieContent>
           </MovieDetailsWrapper>
           <Suspense fallback={<Loader top="70%" />}>
-            <Outlet />
+            <Container>
+              <Outlet />
+            </Container>
           </Suspense>
         </>
       )}
