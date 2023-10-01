@@ -37,14 +37,13 @@ const FoundMoviesList = () => {
     <List>
       {!isLoading ? (
         foundMovies.map(
-          ({ id, title, poster_path, backdrop_path }) =>
+          ({ id, title, poster_path }) =>
             poster_path && (
               <MovieItem
                 key={id}
                 route={`/movies/${id}`}
                 title={title}
                 posterPath={poster_path}
-                backdropPath={backdrop_path}
               />
             )
         )
