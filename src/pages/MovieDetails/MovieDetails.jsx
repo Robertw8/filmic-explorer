@@ -18,6 +18,7 @@ import formatNumber from "../../helpers/formatNumber";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import MovieIcon from "@mui/icons-material/Movie";
 import Loader from "../../components/Loader/Loader";
+import BackButton from "../../components/BackButton/BackButton";
 const Cast = lazy(() => import("../../components/Cast/Cast"));
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 
@@ -49,6 +50,7 @@ const MovieDetails = () => {
 			{currentMovie && (
 				<>
 					<MovieDetailsWrapper>
+						<BackButton onClick={() => navigate("/")} />
 						<ImageThumb>
 							<MovieImage
 								src={`https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}`}
