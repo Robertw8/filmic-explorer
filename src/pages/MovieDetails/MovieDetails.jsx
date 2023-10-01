@@ -54,18 +54,13 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const { poster_path, title, overview, genres, vote_average } = currentMovie;
-  console.log(location.state?.from);
 
   return (
     <>
       {currentMovie && (
         <>
           <MovieDetailsWrapper>
-            <BackButton
-              onClick={() =>
-                navigate(backRoute.includes("/movies") ? "/movies" : "/")
-              }
-            />
+            <BackButton onClick={() => navigate(backRoute)} />
             <ImageThumb>
               <MovieImage
                 src={
