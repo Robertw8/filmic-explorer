@@ -31,7 +31,6 @@ const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const MovieDetails = () => {
   const [currentMovie, setCurrentMovie] = useState({
     poster_path: "",
-    backdrop_path: "",
     title: "",
     overview: "",
     genres: [],
