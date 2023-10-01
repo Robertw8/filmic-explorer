@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { Routes, Route, useParams, useNavigate, useLocation } from "react-router-dom";
 import {
 	MovieDetailsWrapper,
 	ImageThumb,
@@ -33,6 +33,8 @@ const MovieDetails = () => {
 	});
 	const { movieId } = useParams();
 	const navigate = useNavigate();
+	const location = useLocation();
+	const backRoute = location.state?.from ?? "/";
 
 	useEffect(() => {
 		const fetchMovieDetails = async () => {
@@ -50,7 +52,7 @@ const MovieDetails = () => {
 			{currentMovie && (
 				<>
 					<MovieDetailsWrapper>
-						<BackButton onClick={() => navigate("/")} />
+						<BackButton onClick={() => navigate(backRoute)} />
 						<ImageThumb>
 							<MovieImage
 								src={`https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}`}
