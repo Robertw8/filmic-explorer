@@ -1,25 +1,20 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { useParams, useNavigate, useLocation, Outlet } from "react-router-dom";
 import {
   MovieDetailsWrapper,
-  ImageThumb,
-  MovieImage,
   MovieTitle,
   MovieText,
   MovieContent,
-  GenresWrapper,
-  GenresList,
-  LinksWrapper,
-  StyledButton,
 } from "./MovieDetails.styled";
+import Loader from "../../components/Loader/Loader";
+import BackButton from "../../components/BackButton/BackButton";
+import GenresList from "../../components/GenresList/GenresList";
+import { Container } from "../../styles/globalStyles";
+import MovieLinks from "../../components/MovieLinks/LinksWrapper";
+import MovieImage from "../../components/MovieImage/MovieImage";
 
 import getMovieDetails from "../../api/getMovieDetails";
 import formatNumber from "../../helpers/formatNumber";
-import ReviewsIcon from "@mui/icons-material/Reviews";
-import MovieIcon from "@mui/icons-material/Movie";
-import Loader from "../../components/Loader/Loader";
-import BackButton from "../../components/BackButton/BackButton";
-import { Container } from "../../styles/globalStyles";
+import { useParams, useNavigate, useLocation, Outlet } from "react-router-dom";
 
 const MovieDetails = () => {
   const [currentMovie, setCurrentMovie] = useState({
@@ -33,8 +28,6 @@ const MovieDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const backRoute = location.state?.from ?? "/";
-  const defaultImg =
-    "https://placehold.co/600x400/lightpurple/white?text=No Image Given";
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -53,50 +46,15 @@ const MovieDetails = () => {
         <>
           <MovieDetailsWrapper>
             <BackButton onClick={() => navigate(backRoute)} />
-            <ImageThumb>
-              <MovieImage
-                src={
-                  `https://image.tmdb.org/t/p/w500${poster_path}` || defaultImg
-                }
-                width={400}
-                height={400}
-                alt={title}
-                style={{ width: 400, height: 400 }}
-              />
-            </ImageThumb>
+            <MovieImage imgPath={poster_path} title={title} />
             <MovieContent>
               <MovieTitle>{title}</MovieTitle>
               <MovieText elevation={2}>
                 User Score: {formatNumber(vote_average)}{" "}
               </MovieText>
               {overview && <MovieText elevation={2}>{overview}</MovieText>}
-              <GenresWrapper>
-                <GenresList>
-                  {genres.map(({ name }, index) => (
-                    <MovieText key={index} elevation={2}>
-                      {name}
-                    </MovieText>
-                  ))}
-                </GenresList>
-              </GenresWrapper>
-              <LinksWrapper>
-                <StyledButton
-                  onClick={() =>
-                    navigate("cast", { state: { from: backRoute } })
-                  }
-                  variant="contained"
-                >
-                  <MovieIcon /> Cast
-                </StyledButton>
-                <StyledButton
-                  onClick={() =>
-                    navigate("reviews", { state: { from: backRoute } })
-                  }
-                  variant="contained"
-                >
-                  <ReviewsIcon /> Reviews
-                </StyledButton>
-              </LinksWrapper>
+              <GenresList genres={genres} />
+              <MovieLinks />
             </MovieContent>
           </MovieDetailsWrapper>
           <Suspense fallback={<Loader top="70%" />}>

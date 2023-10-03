@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { List, NoMovies } from "../MoviesList/MoviesList.styled";
 import MovieItem from "../MovieItem/MovieItem";
 
+import { useSearchParams } from "react-router-dom";
 import getMoviesBySearch from "../../api/getMoviesBySearch";
 
 const FoundMoviesList = () => {
@@ -15,6 +15,7 @@ const FoundMoviesList = () => {
 
   useEffect(() => {
     if (!query) return;
+
     setIsLoading(true);
     setNoMoviesFound(false);
 
