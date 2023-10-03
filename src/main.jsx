@@ -8,12 +8,12 @@ import { globalStyles } from "./styles/globalStyles";
 import theme from "./styles/theme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<BrowserRouter basename='/goit-react-hw-05-movies/'>
-			<Global styles={globalStyles} />
-			<ThemeProvider theme={theme}>
-				<App />
-			</ThemeProvider>
-		</BrowserRouter>
-	</React.StrictMode>,
+  <React.StrictMode>
+    <BrowserRouter basename="/filmic-explorer/">
+      <Global styles={globalStyles} />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
