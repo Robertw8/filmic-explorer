@@ -5,7 +5,7 @@ const LinksWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 50px;
+  margin-top: 150px;
 `;
 
 const StyledButton = styled(Button)`

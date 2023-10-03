@@ -5,6 +5,8 @@ const ImageThumb = styled(Card)`
   border-radius: 10px;
   padding: 10px;
   background-color: #4d0dd9;
+  width: 500px;
+  height: 600px;
 
   @media screen and (max-width: 768px) {
     padding: 0;
