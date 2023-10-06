@@ -13,7 +13,7 @@ const SharedLayout = () => {
           <NavBar />
         </Header>
       </Container>
-      <Suspense fallback={<Loader top="70%" />}>
+      <Suspense fallback={<Loader top="100%" />}>
         <Container>
           <Outlet />
         </Container>
