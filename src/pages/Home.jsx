@@ -12,11 +12,15 @@ const Home = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await getTrendingMovies();
-      const foundMovies = response.results;
+      try {
+        const response = await getTrendingMovies();
+        const foundMovies = response.results;
 
-      setMovies(foundMovies);
-      setIsLoading(false);
+        setMovies(foundMovies);
+        setIsLoading(false);
+      } catch (error) {
+        console.warn(error);
+      }
     };
 
     fetchMovies();

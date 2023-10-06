@@ -22,8 +22,12 @@ const Cast = () => {
 
   useEffect(() => {
     const fetchMovieCredits = async () => {
-      const response = await getMovieCredits(movieId);
-      setCast(response.cast);
+      try {
+        const response = await getMovieCredits(movieId);
+        setCast(response.cast);
+      } catch (error) {
+        console.warn(error);
+      }
     };
     fetchMovieCredits();
   }, [movieId]);

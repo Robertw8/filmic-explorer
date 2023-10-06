@@ -20,13 +20,17 @@ const FoundMoviesList = () => {
     setNoMoviesFound(false);
 
     const fetchMoviesBySearch = async () => {
-      const response = await getMoviesBySearch(query);
-      const movies = response.results;
+      try {
+        const response = await getMoviesBySearch(query);
+        const movies = response.results;
 
-      setFoundMovies(movies);
-      setIsLoading(false);
+        setFoundMovies(movies);
+        setIsLoading(false);
 
-      if (movies.length === 0) setNoMoviesFound(true);
+        if (movies.length === 0) setNoMoviesFound(true);
+      } catch (error) {
+        console.warn(error);
+      }
     };
 
     fetchMoviesBySearch();
